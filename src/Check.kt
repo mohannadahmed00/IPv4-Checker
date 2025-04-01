@@ -8,9 +8,12 @@
         - The function should return a Boolean value only—true if the input is a valid IPv4 address, and false otherwise.
 
     You must follow a Test-Driven Development (TDD) approach while building this function:
-        - Create a check function, follow the tutorial structure, and write comprehensive test cases first without implementing any logic in the checker function. Initially, the function should always return false.
+        - Create a check function, follow the tutorial structure,
+          and write comprehensive test cases first without implementing any logic in the checker function.
+          Initially, the function should always return false.
         - Share your written test cases with your mentor during the daily meeting for review and feedback.
           Once approved, begin implementing the logic of the IPv4 checker function step by step, ensuring that each test passes.
+        - Upon successful implementation, design a complete flowchart to represent the decision-making logic of the function using draw.io.
 */
 
 fun main() {
@@ -51,7 +54,7 @@ fun main() {
     )
     check(
         name = "when enter IP contains any character return false",
-        result = isIPv4Valid("192.1681.a.1"),
+        result = isIPv4Valid("192.168.a.1"),
         correctResult = false
     )
 }
