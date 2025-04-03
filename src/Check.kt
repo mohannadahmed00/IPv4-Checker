@@ -65,8 +65,8 @@ fun check(
     correctResult: Boolean,
 ) {
     if (result == correctResult) {
-        println("Success - $name")
+        println("\u001B[32m Success - $name \u001B[0m")
     } else {
-        println("Failed - $name")
+        println("\u001B[31m Failed - $name \u001B[0m")
     }
 }
