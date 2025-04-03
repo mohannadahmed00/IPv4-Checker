@@ -24,8 +24,8 @@ fun hasLeadingZerosSegment(segments: List<String>): Boolean {
 }
 
 fun hasAnyCharacter(segments: String): Boolean {
-    segments.replace(".", "").forEach { char ->
-        if (!char.isDigit()) return true
+    segments.forEach { char ->
+        if (char.isLetter()) return true
     }
     return false
 }
