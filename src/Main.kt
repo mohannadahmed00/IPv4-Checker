@@ -1,31 +1,13 @@
-fun main() {}
-
 fun isIPv4Valid(input: String): Boolean {
     val segments = input.split(".")
     if (segments.size != 4) return false
-    if (hasAnyCharacter(input)) return false
-    if (hasOuOfRangeNumber(segments)) return false
-    if (hasLeadingZerosSegment(segments)) return false
-    return true
+    return segments.all { segment ->
+        isNumeric(segment) && !hasOutOfRangeNumber(segment) && !hasLeadingZerosSegment(segment)
+    }
 }
 
-fun hasOuOfRangeNumber(segments: List<String>): Boolean {
-    segments.forEach { number ->
-        if (number.toInt() < 0 || number.toInt() > 255) return true
-    }
-    return false
-}
+fun hasOutOfRangeNumber(segment: String) = segment.toInt() !in 1..255
 
-fun hasLeadingZerosSegment(segments: List<String>): Boolean {
-    segments.forEach { number ->
-        if (number.length > 1 && number[0] == '0') return true
-    }
-    return false
-}
+fun hasLeadingZerosSegment(segment: String) = segment[0] == '0'
 
-fun hasAnyCharacter(segments: String): Boolean {
-    segments.forEach { char ->
-        if (char.isLetter()) return true
-    }
-    return false
-}
+fun isNumeric(segment: String) = segment.toIntOrNull() != null
